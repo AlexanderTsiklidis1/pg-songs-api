@@ -10,7 +10,7 @@ app.use(express.json());
 
 
 app.get("/", (req, res) => {
-  res.send("Welcome to Our Songs App");
+  res.send("Welcome to Our Tuner App");
 });
 
 const songsController = require("./controllers/songsController.js");
