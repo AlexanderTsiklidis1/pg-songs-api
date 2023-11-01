@@ -11,3 +11,9 @@ CREATE TABLE songs (
  time TEXT,
  is_favorite BOOLEAN
 );
+
+CREATE TABLE artists (
+  id SERIAL PRIMARY KEY,
+  name TEXT NOT NULL,
+  genre TEXT
+);

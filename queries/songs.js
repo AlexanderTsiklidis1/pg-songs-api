@@ -30,7 +30,7 @@ const createSong = async (song) =>{
 
 const deleteSong = async (id) => {
     try {
-        const deletedBookmark = await db.one(
+        const deletedSong = await db.one(
             "DELETE from songs WHERE id = $1 RETURNING *",
             id
         )
@@ -42,12 +42,12 @@ const deleteSong = async (id) => {
 
 const updateSong = async (id, song) => {
     try {
-        const { name, url, category, is_favorite } = song;
-        const updatedBookmark = await db.one(
-            "UPDATE bookmarks SET name=$1, url=$2,category=$3, is_favorite=$4 WHERE id=$5 RETURNING *",
-            [name, url, category, is_favorite, id]
+        const { name, artist, album} = song;
+        const updatedSong = await db.one(
+            "UPDATE songs SET name=$1, artist=$2,album=$3,WHERE id=$4RETURNING *",
+            [name, artist, album, id]
         );
-        return updatedBookmark
+        return updatedSong
     } catch(err) {
         return err
     }

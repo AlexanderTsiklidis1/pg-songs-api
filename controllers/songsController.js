@@ -12,7 +12,7 @@ const songs = express.Router();
 
 
 songs.get("/", async (req, res) => {
-    // heres where we need to get THE DATAS
+    
     const allSongs = await getAllSongs();
     if (allSongs[0]) {
         res.status(200)
